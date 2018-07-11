@@ -53,12 +53,19 @@
 
             <!-- Inicio do Corpo -->
             <div class="corpo col s12 blue">
-                <div class="col s6 red center center-align">
-                    <h1>Lol</h1>
+                
+                <!-- Inicio do Jogo -->
+                <div id="jogo" class="col s12 m10 l8 offset-m1 offset-l2 grey lighten-2">
+
+                    <!-- Inicio do Tabuleiro -->
+                    <div id="tabuleiro" class="col s12 m8 l8 offset-l2 offset-m2 center-align">
+
+                    </div>
+                    <!-- Fim do tabuleiro -->
+
                 </div>
-                <div class="col s6 blue center center-align">
-                    <h1>Dota</h1>
-                </div>
+                <!-- Fim do Jogo -->
+            
             </div>
             <!-- Fim do corpo -->
 
@@ -73,10 +80,17 @@
         <!--Scripts-->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/2048_game.js"></script>
         <script>
             $(document).ready(function(){
                 //Incialização do Menu Mobile
                 $('.sidenav').sidenav();
+
+                //Coloca todo o tabuleiro do jogo
+                inicializar_tabuleiro();
+
+                //Inicializa função para redimencionar quadrados
+                redimencionar_quadrados();
             });
         </script>
     </body>
