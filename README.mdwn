@@ -16,3 +16,9 @@ Dependências
 
 Para executar o Simple 2048 é necessário somente um navegador
 que interprete javascript, css3 e html5!
+
+Outras informações
+------------------
+
+Também é possivel encontrar algumas informações dentro da página
+"sobre.html" em nosso projeto!
