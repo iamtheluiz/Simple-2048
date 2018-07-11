@@ -11,3 +11,8 @@ Algumas facilidades que buscamos oferecer são:
 * Customização do jogo (cores, blocos, temas, etc)
 * Fácil entendimento
 
+Dependências
+------------
+
+Para executar o Simple 2048 é necessário somente um navegador
+que interprete javascript, css3 e html5!
