@@ -1,0 +1,18 @@
+Simple 2048: Jogo para navegador e android
+==========================================
+
+Simple 2048 é um jogo para pessoas que buscam entretenimento
+em seus momentos vagos, podendo ser executado em navegadores
+(por meio da programação WEB) e também celulares android 
+(conversão feita pelo MONACA futuramente).
+Algumas facilidades que buscamos oferecer são:
+
+* Responsividade.
+* Customização do jogo (cores, blocos, temas, etc)
+* Fácil entendimento
+
+Dependências
+------------
+
+Para executar o Simple 2048 é necessário somente um navegador
+que interprete javascript, css3 e html5!
