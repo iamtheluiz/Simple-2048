@@ -1,0 +1,10 @@
+TODO
+====
+
+* Organização da indentidade visual (Display)
+* Criar repositório git para o sistema
+* Tela principal de jogo
+* Funções do jogo
+* Implementação para Android
+* Documentação do sistema
+* Lançamento 
