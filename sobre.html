@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- 
+    Copyright (C) 2018  Luiz Gustavo da Silva Vasconcellos
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PART ICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>. 
+-->
+<html>
+    <head>
+        <link href="css/material_icons.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="content row">
+
+            <!-- Inicio do Menu -->
+            <div class="topo">
+                <!-- Inicio Menu Desktop -->
+                <nav>
+                    <div class="nav-wrapper blue z-depth-2">
+                        &nbsp;<a href="index.html" class="brand-logo"><i class="material-icons">grid_on</i>2048</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="sobre.html">Sobre o Programa</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- Fim Menu Desktop -->
+                    
+                <!-- Inicio Menu Mobile -->
+                <ul class="sidenav" id="mobile-demo">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre.html">Sobre o Programa</a></li>
+                </ul>
+                <!-- Fim Menu Mobile -->
+
+            </div>
+            <!-- Fim do Menu -->
+
+            <!-- Inicio do Corpo -->
+            <div class="corpo col s12">
+
+                <!-- Caixa de Informações -->
+                <div id="info" class="col l10 m10 s12 offset-m1 offset-l1">
+
+                    <!-- Inicio da Introdução -->
+
+                    <!-- Titulo -->
+                    <div class="col s12">
+                        <h3 id="titulo">Sobre o "Simple 2048"</h3>
+                    </div>
+
+                    <!-- Páragrafos -->
+                    <div class="col s12">
+                        <p>
+                            O "Simple 2048" é um jogo desenvolvido em HTML, CSS e Javascript. Seu objetivo principal é a criação 
+                            de um aplicativo interessante para o usuário e a utilização deste sistema para o aprendizado da 
+                            programação (por desenvolvedores que resolvam ver este código).
+                        </p>
+                        <p>
+                            Como esse código ainda está em desenvolvimento, conforme forem implementadas novas funções, este arquivo
+                            será atualizado com caminhos e instruções acerca do trabalho executado! :D
+                        </p>
+                    </div>
+                    <!-- Fim da introdução -->
+
+                    <!-- Inicio da aba de Frameworks -->
+
+                    <!-- Sub-titulo -->
+                    <div class="col s12">
+                        <h5 id="sub-titulo">Frameworks</h5>
+                    </div>
+
+                    <!-- Páragrafos -->
+                    <div class="col s12">
+                        <!-- Text introdutório -->
+                        <p>
+                            Este jogo/site está sendo desenvolvido com as seguintes Frameworks:
+                        </p>
+                        <!-- Materialize -->
+                        <p class="frame">
+                            <span id="frame-titulo"><i class="material-icons">chevron_right</i> Materialize:</span>
+                            <span id="frame-conteudo">
+                                <a href="https://materializecss.com/">materializecss.com</a>
+                            </span>
+                        </p>
+
+                        <!-- Jquery -->
+                        <p class="frame">
+                            <span id="frame-titulo"><i class="material-icons">chevron_right</i> jQuery:</span>
+                            <span id="frame-conteudo">
+                                <a href="https://jquery.com/">jquery.com</a>
+                            </span>
+                        </p>
+                    </div>
+
+                    <!-- Fim da aba de Frameworks -->
+
+                    <!-- Inicio da aba de Icones e Fontes -->
+
+                    <!-- Sub-titulo -->
+                    <div class="col s12">
+                            <h5 id="sub-titulo">Icones e Fontes</h5>
+                        </div>
+    
+                        <!-- Páragrafos -->
+                        <div class="col s12">
+                            <!-- Text introdutório -->
+                            <p>
+                                As seguintes fontes e icones estão sendo utilizados neste site:
+                            </p>
+                            <!-- Materialize -->
+                            <p class="frame">
+                                <span id="frame-titulo"><i class="material-icons">chevron_right</i> Roboto:</span>
+                                <span id="frame-conteudo">
+                                    <a href="https://fonts.google.com/specimen/Roboto">fonts.google.com</a>
+                                </span>
+                            </p>
+    
+                            <!-- Jquery -->
+                            <p class="frame">
+                                <span id="frame-titulo"><i class="material-icons">chevron_right</i> Material-icons:</span>
+                                <span id="frame-conteudo">
+                                    <a href="https://material.io/tools/icons/">material.io</a>
+                                </span>
+                            </p>
+                        </div>
+                        
+                        <!-- Fim da aba de Frameworks -->
+
+                </div>
+
+            </div>
+            <!-- Fim do corpo -->
+
+            <!-- Inicio do Rodapé -->
+            <div class="footer col s12">
+                
+            </div>
+            <!-- Fim do Rodapé -->
+
+        </div>
+
+        <!--Scripts-->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                //Incialização do Menu Mobile
+                $('.sidenav').sidenav();
+            });
+        </script>
+    </body>
+</html>
+<style>
+    #info p{
+        text-align: justify;
+        text-indent:2em;
+    }
+    #titulo{
+        text-decoration: underline;
+    }
+    #sub-titulo{
+        font-weight: 500;
+    }
+    .frame{
+        text-indent: 1em !important;
+        text-align: left !important;
+    }
+    #frame-titulo{
+        font-weight: 450;
+        font-size: 15pt;
+    }
+    #frame-conteudo{
+        font-size: 14pt;
+    }
+
+</style>
