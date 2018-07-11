@@ -19,3 +19,48 @@ html{
     margin:0;
     padding:0;
 }
+#info p{
+    text-align: justify;
+    text-indent:2em;
+}
+#titulo{
+    text-decoration: underline;
+}
+#sub-titulo{
+    font-weight: 500;
+}
+.frame{
+    text-indent: 1em !important;
+    text-align: left !important;
+}
+#frame-titulo{
+    font-weight: 450;
+    font-size: 15pt;
+}
+#frame-conteudo{
+    font-size: 14pt;
+}
+
+#jogo{
+    margin-top:40px;
+    padding-top:30px;
+    padding-bottom:30px;
+}
+#tabuleiro{
+    background-color: rgb(177, 177, 177);
+    padding:2px !important;
+}
+.quadrado{
+    background-color: red;
+    width: calc(100%/4 - 4px);
+    padding-top:15%;
+    float:left;
+    margin: 2px;
+    border-radius:3px;
+}
+.numeros{
+    font-weight: 500;
+    color:white;    
+    font-size:20pt;
+    text-align: center;
+}
