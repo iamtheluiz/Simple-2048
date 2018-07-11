@@ -19,3 +19,24 @@ html{
     margin:0;
     padding:0;
 }
+#info p{
+    text-align: justify;
+    text-indent:2em;
+}
+#titulo{
+    text-decoration: underline;
+}
+#sub-titulo{
+    font-weight: 500;
+}
+.frame{
+    text-indent: 1em !important;
+    text-align: left !important;
+}
+#frame-titulo{
+    font-weight: 450;
+    font-size: 15pt;
+}
+#frame-conteudo{
+    font-size: 14pt;
+}
