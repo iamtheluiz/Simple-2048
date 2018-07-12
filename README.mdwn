@@ -11,17 +11,26 @@ Algumas facilidades que buscamos oferecer são:
 * Customização do jogo (cores, blocos, temas, etc)
 * Fácil entendimento
 
-Dependências
-------------
-
-Para executar o Simple 2048 é necessário somente um navegador
-que interprete javascript, css3 e html5!
-
 Desenvolvimento
 ---------------
 
 * Nosso jogo produz os campos por meio de uma função javascript de nome 'inicializar_tabuleiro'
 * A introdução de valores ao HTML é feita por meio da função 'redimencionar_quadrados', que mais tarde será renomeada devido a organização
+
+Fazendo um release
+------------------
+
+    # Esse projeto tem utilizado do git-flow
+    git flow init
+
+    # Para desenvolvimento, utilize o branch develop
+    git checkout develop
+
+    # Faça um realease conforme o necessário
+    git flow release init 'versao'
+
+    # Ao concluir as alterações do release
+    git flow release finish 'versao'
 
 Outras informações
 ------------------
