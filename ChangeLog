@@ -1,4 +1,12 @@
+2018-07-12 - 0.3 - Luiz Gustavo da Silva Vasconcellos
+
+    * Atualização da documentação ('Fazendo um release')
+
 2018-07-10 - 0.2 - Luiz Gustavo da Silva Vasconcellos
 
     * Adionado o tabuleiro e sua criação
     * Adicionada função para escrever o valor de um quadrado
+
+2018-07-10 - 0.1 - Luiz Gustavo da Silva Vasconcellos
+
+    * Versão inicial do projeto Simple 2048.
