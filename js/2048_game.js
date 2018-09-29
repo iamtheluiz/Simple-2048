@@ -110,6 +110,10 @@ function definir_numero(campo,num){
     //Campo que receberá o número
     var campo_n = document.getElementById(campo);
 
+    //Componentes do quadrado
+    var id = campo.split('n');
+    var quadra = document.getElementById('q'+id[1]);
+
     //Verifica se o número passado é 0
     if(num == 0){
         //Gerar número aleatoriamente (2 ou 4)
@@ -119,16 +123,22 @@ function definir_numero(campo,num){
             //Número será 4
             campo_n.setAttribute('value',4);
             campo_n.innerHTML = campo_n.getAttribute('value');
+
+            quadra.setAttribute('class','quadrado nc_'+4);
         }else{
             //Número será 2
             campo_n.setAttribute('value',2);
             campo_n.innerHTML = campo_n.getAttribute('value');
+
+            quadra.setAttribute('class','quadrado nc_'+2);
         }
 
     }else{
         //Coloca o número que foi passado
         campo_n.setAttribute('value',num);
         campo_n.innerHTML = campo_n.getAttribute('value');
+
+        quadra.setAttribute('class','quadrado nc_'+num);
     }
 
 
@@ -139,6 +149,37 @@ function zerar_div(campo){
 
     campo_n.setAttribute('value',0);
     campo_n.innerHTML = '&nbsp;';
+
+    //Componentes do quadrado
+    var id = campo.split('n');
+    var quadra = document.getElementById('q'+id[1]);
+
+    quadra.setAttribute('class','quadrado');
+}
+
+function gerar_novo_numero(){
+
+    var verif = 1;
+
+    while(verif == 1){
+        //Pega um lugar aleatório
+        var x_c = Math.floor(Math.random() * x + 1);
+        var y_c = Math.floor(Math.random() * y + 1);
+        var campo_c = 'n'+y_c+'_'+x_c;
+
+        //Verifica se já existe um número naquele campo
+        var div = document.getElementById(campo_c);
+
+        if(div.getAttribute('value') != 0){
+            //Já existe um número nesse local
+            verif = 1;
+        }else{
+            //Define um número aleatório
+            definir_numero(campo_c,0);
+            verif = 0;
+        }   
+        console.log(verif);
+    }
 }
 
 function mover_tabuleiro(evt){
@@ -149,24 +190,26 @@ function mover_tabuleiro(evt){
         for(var qt = 1; qt <= x; qt++){
             empurrar_numeros('up');
         }
+        gerar_novo_numero();
     }else if(tecla == 'ArrowRight' || tecla == 'd'){
         //Todas as peças devem ir para a direita
         for(var qt = 1; qt <= x; qt++){
             empurrar_numeros('right');
         }
+        gerar_novo_numero();
     }else if(tecla == 'ArrowDown' || tecla == 's'){
         //Todas as peças devem ir para baixo
         for(var qt = 1; qt <= x; qt++){
             empurrar_numeros('down');
         }
+        gerar_novo_numero();
     }else if(tecla == 'ArrowLeft' || tecla == 'a'){
         //Todas as peças devem ir para a esquerda
         for(var qt = 1; qt <= x; qt++){
             empurrar_numeros('left');
         }
+        gerar_novo_numero();
     }
-    
-    gerar_novo_numero();
 }
 
 function empurrar_numeros(direcao){ //Direção
@@ -217,7 +260,6 @@ function empurrar_numeros(direcao){ //Direção
 
                 //O quadrado em que estamos
                 var quad = document.getElementById('n'+c+'_'+i);
-                console.log(quad);
 
                 //Verifica se é o primeiro quadrado da ponta
                 if(c != 4){     //Não precisa passar pelo primeiro quadrado
@@ -256,7 +298,6 @@ function empurrar_numeros(direcao){ //Direção
 
                 //O quadrado em que estamos
                 var quad = document.getElementById('n'+c+'_'+i);
-                console.log(quad);
 
                 //Verifica se é o primeiro quadrado da ponta
                 if(i != 1){     //Não precisa passar pelo primeiro quadrado
@@ -295,7 +336,6 @@ function empurrar_numeros(direcao){ //Direção
 
                 //O quadrado em que estamos
                 var quad = document.getElementById('n'+c+'_'+i);
-                console.log(quad);
 
                 //Verifica se é o primeiro quadrado da ponta
                 if(i != 4){     //Não precisa passar pelo primeiro quadrado

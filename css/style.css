@@ -63,4 +63,25 @@ html{
     color:white;    
     font-size:20pt;
     text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.nc_2{
+    background-color: #CECE33 !important;
+}
+.nc_4{
+    background-color: purple !important;
+}
+.nc_8{
+    background-color: blue !important;
+}
+.nc_16{
+    background-color: #032856 !important;
+}
+.nc_32{
+    background-color: green !important;
+}
+.nc_64{
+    background-color: #B85D6D !important;
 }
