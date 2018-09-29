@@ -1,3 +1,10 @@
+2018-09-29 - 0.4 - Luiz Gustavo da Silva Vasconcellos
+
+    * Adicionada geração de números
+    * Movimentação do tabuleiro
+    * Soma dos números
+    * Adicionadas cores diferentes até o número 64
+
 2018-07-12 - 0.3 - Luiz Gustavo da Silva Vasconcellos
 
     * Atualização da documentação ('Fazendo um release')
