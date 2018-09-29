@@ -110,6 +110,10 @@ function definir_numero(campo,num){
     //Campo que receberá o número
     var campo_n = document.getElementById(campo);
 
+    //Componentes do quadrado
+    var id = campo.split('n');
+    var quadra = document.getElementById('q'+id[1]);
+
     //Verifica se o número passado é 0
     if(num == 0){
         //Gerar número aleatoriamente (2 ou 4)
@@ -119,17 +123,248 @@ function definir_numero(campo,num){
             //Número será 4
             campo_n.setAttribute('value',4);
             campo_n.innerHTML = campo_n.getAttribute('value');
+
+            quadra.setAttribute('class','quadrado nc_'+4);
         }else{
             //Número será 2
             campo_n.setAttribute('value',2);
             campo_n.innerHTML = campo_n.getAttribute('value');
+
+            quadra.setAttribute('class','quadrado nc_'+2);
         }
 
     }else{
         //Coloca o número que foi passado
         campo_n.setAttribute('value',num);
         campo_n.innerHTML = campo_n.getAttribute('value');
+
+        quadra.setAttribute('class','quadrado nc_'+num);
     }
 
+
+}
+function zerar_div(campo){
+    //Campo que receberá o número
+    var campo_n = document.getElementById(campo);
+
+    campo_n.setAttribute('value',0);
+    campo_n.innerHTML = '&nbsp;';
+
+    //Componentes do quadrado
+    var id = campo.split('n');
+    var quadra = document.getElementById('q'+id[1]);
+
+    quadra.setAttribute('class','quadrado');
+}
+
+function gerar_novo_numero(){
+
+    var verif = 1;
+
+    while(verif == 1){
+        //Pega um lugar aleatório
+        var x_c = Math.floor(Math.random() * x + 1);
+        var y_c = Math.floor(Math.random() * y + 1);
+        var campo_c = 'n'+y_c+'_'+x_c;
+
+        //Verifica se já existe um número naquele campo
+        var div = document.getElementById(campo_c);
+
+        if(div.getAttribute('value') != 0){
+            //Já existe um número nesse local
+            verif = 1;
+        }else{
+            //Define um número aleatório
+            definir_numero(campo_c,0);
+            verif = 0;
+        }   
+        console.log(verif);
+    }
+}
+
+function mover_tabuleiro(evt){
+    var tecla = evt.key;
+
+    if(tecla == 'ArrowUp' || tecla == 'w'){
+        //Todas as peças devem ir para o topo
+        for(var qt = 1; qt <= x; qt++){
+            empurrar_numeros('up');
+        }
+        gerar_novo_numero();
+    }else if(tecla == 'ArrowRight' || tecla == 'd'){
+        //Todas as peças devem ir para a direita
+        for(var qt = 1; qt <= x; qt++){
+            empurrar_numeros('right');
+        }
+        gerar_novo_numero();
+    }else if(tecla == 'ArrowDown' || tecla == 's'){
+        //Todas as peças devem ir para baixo
+        for(var qt = 1; qt <= x; qt++){
+            empurrar_numeros('down');
+        }
+        gerar_novo_numero();
+    }else if(tecla == 'ArrowLeft' || tecla == 'a'){
+        //Todas as peças devem ir para a esquerda
+        for(var qt = 1; qt <= x; qt++){
+            empurrar_numeros('left');
+        }
+        gerar_novo_numero();
+    }
+}
+
+function empurrar_numeros(direcao){ //Direção
+
+    if(direcao == 'up'){
+
+        //Precisa passar por cada um dos quadrados
+        for(var i = 1; i <= x; i++){        //Passando por todas as Linhas
+            for(var c = 1; c <= y; c++){    //Passando pelas colunas de cada linha
+
+                //O quadrado em que estamos
+                var quad = document.getElementById('n'+c+'_'+i);
+
+                //Verifica se é o primeiro quadrado da ponta
+                if(c != 1){     //Não precisa passar pelo primeiro quadrado
+
+                    //Verifica o valor do quadrado acima
+                    if((c-1) == 0){
+                        //Quadrado de cima não existe
+                    }else{
+                        quad_up = document.getElementById('n'+(c-1)+'_'+i);
+
+                        if(quad_up.getAttribute('value') == 0 && quad.getAttribute('value') != 0){
+                            //Mudam de lugar
+
+                            definir_numero(quad_up.getAttribute('id'),quad.getAttribute('value'));
+
+                            zerar_div(quad.getAttribute('id'));
+
+                        }else if(quad_up.getAttribute('value') == quad.getAttribute('value') && quad.getAttribute('value') != 0){
+                            //Faz a soma dos valores dos dois quadrados
+
+                            definir_numero(quad_up.getAttribute('id'),parseInt(quad.getAttribute('value'))*2);
+
+                            zerar_div(quad.getAttribute('id'));
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(direcao == 'down'){
+
+        //Precisa passar por cada um dos quadrados
+        for(var i = 1; i <= x; i++){        //Passando por todas as Linhas
+            for(var c = 4; c >= 1; c--){    //Passando pelas colunas de cada linha
+
+                //O quadrado em que estamos
+                var quad = document.getElementById('n'+c+'_'+i);
+
+                //Verifica se é o primeiro quadrado da ponta
+                if(c != 4){     //Não precisa passar pelo primeiro quadrado
+
+                    //Verifica o valor do quadrado acima
+                    if((c+1) == 5){
+                        //Quadrado de cima não existe
+                    }else{
+                        quad_up = document.getElementById('n'+(c+1)+'_'+i);
+
+                        if(quad_up.getAttribute('value') == 0 && quad.getAttribute('value') != 0){
+                            //Mudam de lugar
+
+                            definir_numero(quad_up.getAttribute('id'),quad.getAttribute('value'));
+
+                            zerar_div(quad.getAttribute('id'));
+
+                        }else if(quad_up.getAttribute('value') == quad.getAttribute('value') && quad.getAttribute('value') != 0){
+                            //Faz a soma dos valores dos dois quadrados
+
+                            definir_numero(quad_up.getAttribute('id'),parseInt(quad.getAttribute('value'))*2);
+
+                            zerar_div(quad.getAttribute('id'));
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(direcao == 'left'){
+
+        //Precisa passar por cada um dos quadrados
+        for(var c = 1; c <= y; c++){        //Passando por todas as colunas
+            for(var i = 1; i <= x; i++){    //Passando pelas linhas de cada coluna
+
+                //O quadrado em que estamos
+                var quad = document.getElementById('n'+c+'_'+i);
+
+                //Verifica se é o primeiro quadrado da ponta
+                if(i != 1){     //Não precisa passar pelo primeiro quadrado
+
+                    //Verifica o valor do quadrado acima
+                    if((i-1) == 0){
+                        //Quadrado de cima não existe
+                    }else{
+                        quad_up = document.getElementById('n'+c+'_'+(i-1));
+
+                        if(quad_up.getAttribute('value') == 0 && quad.getAttribute('value') != 0){
+                            //Mudam de lugar
+
+                            definir_numero(quad_up.getAttribute('id'),quad.getAttribute('value'));
+
+                            zerar_div(quad.getAttribute('id'));
+
+                        }else if(quad_up.getAttribute('value') == quad.getAttribute('value') && quad.getAttribute('value') != 0){
+                            //Faz a soma dos valores dos dois quadrados
+
+                            definir_numero(quad_up.getAttribute('id'),parseInt(quad.getAttribute('value'))*2);
+
+                            zerar_div(quad.getAttribute('id'));
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(direcao == 'right'){
+
+        //Precisa passar por cada um dos quadrados
+        for(var c = 1; c <= y; c++){        //Passando por todas as colunas
+            for(var i = y; i >= 1; i--){    //Passando pelas linhas de cada coluna
+
+                //O quadrado em que estamos
+                var quad = document.getElementById('n'+c+'_'+i);
+
+                //Verifica se é o primeiro quadrado da ponta
+                if(i != 4){     //Não precisa passar pelo primeiro quadrado
+
+                    //Verifica o valor do quadrado acima
+                    if((i+1) == 5){
+                        //Quadrado de cima não existe
+                    }else{
+                        quad_up = document.getElementById('n'+c+'_'+(i+1));
+
+                        if(quad_up.getAttribute('value') == 0 && quad.getAttribute('value') != 0){
+                            //Mudam de lugar
+
+                            definir_numero(quad_up.getAttribute('id'),quad.getAttribute('value'));
+
+                            zerar_div(quad.getAttribute('id'));
+
+                        }else if(quad_up.getAttribute('value') == quad.getAttribute('value') && quad.getAttribute('value') != 0){
+                            //Faz a soma dos valores dos dois quadrados
+
+                            definir_numero(quad_up.getAttribute('id'),parseInt(quad.getAttribute('value'))*2);
+
+                            zerar_div(quad.getAttribute('id'));
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }
